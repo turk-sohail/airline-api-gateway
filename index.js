@@ -17,7 +17,7 @@ const limiter = rateLimit({
 app.use(limiter);
 app.use(morgan("debug"));
 
-app.get("/home",(res,res)=>{
+app.get("/home",(req,res)=>{
   res.status(200).json({
     status:"OK",
     message:"You have reached home");

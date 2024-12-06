@@ -3,7 +3,7 @@ dotenv.config();
 const express = require("express");
 const app = express();
 const morgan = require("morgan");
-const PORT = process.env.PORT;
+const PORT = 3005;
 const { createProxyMiddleware } = require("http-proxy-middleware");
 const { rateLimit } = require("express-rate-limit");
 const axios = require("axios");

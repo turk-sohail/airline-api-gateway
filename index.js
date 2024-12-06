@@ -15,7 +15,7 @@ const limiter = rateLimit({
 
 // Apply the rate limiting middleware to all requests.
 app.use(limiter);
-app.use(morgan("debug"));
+app.use(morgan("combined"));
 
 app.get("/home", (req, res) => {
   res.status("200").json({

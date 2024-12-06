@@ -9,13 +9,21 @@ const { rateLimit } = require("express-rate-limit");
 const axios = require("axios");
 
 const limiter = rateLimit({
-  windowMs: 2 * 60 * 1000, // 15 minutes
+  windowMs: 5 * 60 * 1000, // 15 minutes
   limit: 5, // Limit each IP to 100 requests per `window` (here, per 15 minutes).
 });
 
 // Apply the rate limiting middleware to all requests.
 app.use(limiter);
-app.use(morgan("combined"));
+app.use(morgan("debug"));
+
+app.get("/home",(res,res)=>{
+  res.status(200).json({
+    status:"OK",
+    message:"You have reached home");
+  })
+})
+
 
 app.use("/bookingservice", async (req, res, next) => {
   const authHeader = req.headers.authorization;
